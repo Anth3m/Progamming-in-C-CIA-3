@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+float calculateBMI(float _weight, float _length);
+void interpretBMI(float bmi);
+
+int main() {
+    char name[100];
+    int age;
+    float weight;
+    float length;
+
+    printf("Please enter your name: ");
+    scanf("%s", name);
+    printf("Please enter your age: ");
+    scanf("%d", &age);
+    printf("Hello %s\n", name);
+    printf("Please enter your weight in KG: ");
+    scanf("%f", &weight);
+    printf("Please enter your height in M: ");
+    scanf("%f", &length);
+
+    float bmiValue = calculateBMI(weight, length);
+    interpretBMI(bmiValue);
+
+    return 0;
+}
+
+float calculateBMI(float _weight, float _length) {
+    return _weight / (_length * _length);
+}
+//interpretation of the BMI
+void interpretBMI(float bmi) {
+    if (bmi < 18.5) {
+        printf("You are underweight.\n");
+    } else if (bmi >= 18.5 && bmi < 25) {
+        printf("Your weight is normal.\n");
+    } else if (bmi >= 25 && bmi < 30) {
+        printf("You are overweight.\n");
+    } else {
+        printf("You are obese.\n");
+    }
+}
